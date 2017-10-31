@@ -12,11 +12,25 @@ $(document).ready(function(){
 				];
 
  
-     var $url = 'https://wind-bow.glitch.me/twitch-api/streams/shiphtur?callback=?';
-    	
-    	$.getJSON($url, function(data) {
-    		console.log(data);
-       	});
-    
+         var output = '<ul>';
 
-   });
+    	
+    	// Loop through each user to get data
+    	$.each(users, function(key, val) {
+    	  var $url = 'https://wind-bow.glitch.me/twitch-api/streams/' + users[key] + '?callback=?';
+	      	
+	    	$.getJSON($url, function(data) {
+	    
+	    	if(data.stream === null){
+	    		output += '<li>' + val + '</li>';
+	    		console.log(output);
+	       	} else {
+	       		output += '<li>' + val + '</li>';
+	        	}
+	             console.log(output);
+     	  	}); // getJSON
+
+    }); // Each loop
+    	  	 output += '</ul>';
+ 			$('#results').html(output);
+   });// document.ready
