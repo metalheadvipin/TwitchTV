@@ -8,3 +8,12 @@ h1 {
 body{
 	font-family: 'Source Sans Pro', sans-serif;
 }
+
+ul{
+	width: 70%;
+	margin: 50px 30px;
+}
+li{
+	list-style: none;
+	margin-top: 20px;
+}

@@ -12,25 +12,29 @@ $(document).ready(function(){
 				];
 
  
-         var output = '<ul>';
 
-    	
+         var $output = "";
+   	
     	// Loop through each user to get data
     	$.each(users, function(key, val) {
-    	  var $url = 'https://wind-bow.glitch.me/twitch-api/streams/' + users[key] + '?callback=?';
-	      	
-	    	$.getJSON($url, function(data) {
-	    
-	    	if(data.stream === null){
-	    		output += '<li>' + val + '</li>';
-	    		console.log(output);
-	       	} else {
-	       		output += '<li>' + val + '</li>';
-	        	}
-	             console.log(output);
-     	  	}); // getJSON
+    	  var $url = 'https://wind-bow.glitch.me/twitch-api/channels/' + users[key] + '?callback=?';
+	      	$output += '<li>';
 
+	    	$.getJSON($url, function(data) {
+	    		
+	    		$output += '<img src="' + data.logo +'">';
+	    		console.log($output);
+	    	if(data.stream === null){
+	    		
+	       	} else {
+
+	        	}
+	       
+
+     	  	}); // getJSON
+	   $output += '</li>';
     }); // Each loop
-    	  	 output += '</ul>';
- 			$('#results').html(output);
+
+
+ 			$('#results').html($output);
    });// document.ready
