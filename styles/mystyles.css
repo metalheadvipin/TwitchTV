@@ -103,3 +103,14 @@ footer{
   top:200px;
   z-index: 100;
 }
+
+@media only screen and (max-width: 450px) {
+
+body{
+	margin-left: -54px;
+}
+footer{
+	margin-left: 33px;
+}
+
+}
